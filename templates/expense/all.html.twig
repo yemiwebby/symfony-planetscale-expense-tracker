@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}All Expenses{% endblock %}
+
+{% block body %}
+    <div style="width:60%; margin:auto" >
+        <h1 class="title">All Expenses</h1>
+
+        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+            <thead>
+            <tr class="has-background-primary-light">
+                <th>S/N</th>
+                <th>Amount</th>
+                <th>Category</th>
+            </tr>
+            </thead>
+            <tfoot>
+            <tr class="has-background-primary-light">
+                <th>S/N</th>
+                <th>Amount</th>
+                <th>Category</th>
+            </tr>
+            </tfoot>
+            <tbody>
+            {% for expense in expenses %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td><b>{{ expense.amount | number_format(2, '.', ',') }}</b></td>
+                    <td>{{ expense.category.name }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

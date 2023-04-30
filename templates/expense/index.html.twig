@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Expense Tracker{% endblock %}
+
+{% block body %}
+    <div style="width: 700px; margin: auto">
+        <canvas id="expenseChart"></canvas>
+    </div>
+
+    <script>
+        const context = document.getElementById('expenseChart');
+        new Chart(context, {
+            type: 'doughnut',
+            data: {
+                labels: {{ expenses|column('name')|json_encode|raw }},
+                datasets: [{
+                    label: 'Amount',
+                    data:  {{ expenses|column('amount')|json_encode|raw }},
+                    borderWidth: 1,
+                    hoverOffset: 4
+                }]
+            }
+        });
+    </script>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock %}

@@ -1,0 +1,5 @@
+{% block form_errors %}
+    {% if errors.count > 0 %}
+        <p class="help is-danger">{{ errors|first.message }}</p>
+    {% endif %}
+{% endblock %}

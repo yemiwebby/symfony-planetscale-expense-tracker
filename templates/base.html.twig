@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Expense tracker{% endblock %}</title>
+    <link rel="icon" href="https://planetscale.com/favicon.svg">
+    <link rel="icon" href="https://planetscale.com/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+</head>
+<body>
+<div style="margin: 2%">
+    {% include 'navigation.html.twig' %}
+    {% block body %}{% endblock %}
+</div>
+</body>
+</html>

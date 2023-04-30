@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add New Expense{% endblock %}
+
+{% block body %}
+    <div style="width:60%; margin:auto">
+        <h1 class="title">Add New Expense</h1>
+        {% form_theme form 'expense/errors.html.twig' %}
+        {{ form_start(form) }}
+        <div class="field is-horizontal">
+            <div class="field-label">
+                {{ form_label(form.amount, null, {'label_attr': {'class': 'label'}}) }}
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        {{ form_widget(form.amount, {'attr': {'class': 'input'}}) }}
+                    </div>
+                </div>
+                {{ form_errors(form.amount ) }}
+            </div>
+        </div>
+        <div class="field is-horizontal">
+            <div class="field-label">
+                {{ form_label(form.category, null, {'label_attr': {'class': 'label'}}) }}
+            </div>
+
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <div class="select">
+                            {{ form_widget(form.category) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="field is-horizontal">
+            <div class="field-label">
+                <!-- Left empty for spacing -->
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        {{ form_widget(form.save, {'attr': {'class': 'button is-info'}}) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
